@@ -42,7 +42,7 @@ export const catppuccinMocha: Theme = {
         
         // Borders
         border: '#585b70',            // Surface2
-        borderFocused: '#cba6f7',     // Mauve
+        borderFocused: '#f5c2e7',     // Pink
         
         // Text
         text: '#cdd6f4',              // Text
@@ -50,8 +50,8 @@ export const catppuccinMocha: Theme = {
         textSubtle: '#6c7086',        // Overlay0
         
         // Interactive states
-        accent: '#cba6f7',            // Mauve - Catppuccin's signature
-        accentAlt: '#89b4fa',         // Blue
+        accent: '#f5c2e7',            // Pink (vibrant)
+        accentAlt: '#f2cdcd',         // Flamingo
         hover: '#45475a',             // Surface1
         
         // Semantic colors
