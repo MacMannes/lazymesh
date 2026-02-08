@@ -17,8 +17,10 @@ const themes: Record<ThemeName, Theme> = {
 
 class ThemeManager {
     private currentTheme: Theme;
+    private currentThemeName: ThemeName;
 
     constructor(initialTheme: ThemeName = 'catppuccin-mocha') {
+        this.currentThemeName = initialTheme;
         this.currentTheme = themes[initialTheme];
     }
 
@@ -26,7 +28,12 @@ class ThemeManager {
         return this.currentTheme;
     }
 
+    getThemeName(): ThemeName {
+        return this.currentThemeName;
+    }
+
     setTheme(themeName: ThemeName): void {
+        this.currentThemeName = themeName;
         this.currentTheme = themes[themeName];
     }
 

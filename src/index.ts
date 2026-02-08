@@ -146,20 +146,25 @@ function createThemeMenu() {
     });
 
     // Create select component
-    const currentIndex = themes.findIndex((t: ThemeName) => t === theme.name);
+    const currentThemeName = themeManager.getThemeName();
+    const currentIndex = themes.findIndex((t: ThemeName) => t === currentThemeName);
     themeSelect = new SelectRenderable(renderer, {
         id: 'theme-select',
         width: 36,
         height: 9,
         marginTop: 1,
-        options: themes.map((themeName: ThemeName) => ({
-            name: themeName
+        options: themes.map((themeName: ThemeName) => {
+            const displayName = themeName
                 .split('-')
                 .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                .join(' '),
-            description: themeName === theme.name ? '(current)' : '',
-            value: themeName,
-        })),
+                .join(' ');
+            const isCurrent = themeName === currentThemeName;
+            return {
+                name: isCurrent ? `${displayName} (current)` : displayName,
+                description: '',
+                value: themeName,
+            };
+        }),
         selectedIndex: currentIndex >= 0 ? currentIndex : 0,
         backgroundColor: RGBA.fromHex(theme.colors.surface),
         textColor: RGBA.fromHex(theme.colors.text),
@@ -170,6 +175,7 @@ function createThemeMenu() {
         descriptionColor: RGBA.fromHex(theme.colors.textMuted),
         selectedDescriptionColor: RGBA.fromHex(theme.colors.background),
         showScrollIndicator: true,
+        showDescription: false,  // Hide description line
     });
 
     // Handle theme selection
@@ -190,6 +196,7 @@ function createThemeMenu() {
 function updateThemeMenu() {
     const theme = themeManager.getTheme();
     const themes = themeManager.getAvailableThemes();
+    const currentThemeName = themeManager.getThemeName();
     
     // Update menu box colors
     themeMenuBox.backgroundColor = RGBA.fromHex(theme.colors.surface);
@@ -202,7 +209,7 @@ function updateThemeMenu() {
     }
     
     // Update select colors
-    const currentIndex = themes.findIndex((t: ThemeName) => t === theme.name);
+    const currentIndex = themes.findIndex((t: ThemeName) => t === currentThemeName);
     themeSelect.backgroundColor = RGBA.fromHex(theme.colors.surface);
     themeSelect.textColor = RGBA.fromHex(theme.colors.text);
     themeSelect.focusedBackgroundColor = RGBA.fromHex(theme.colors.surface);
@@ -213,11 +220,15 @@ function updateThemeMenu() {
     themeSelect.selectedDescriptionColor = RGBA.fromHex(theme.colors.background);
     
     // Update options to reflect current theme
-    themeSelect.options = themes.map((themeName: ThemeName) => ({
-        name: themeName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-        description: themeName === theme.name ? '(current)' : '',
-        value: themeName,
-    }));
+    themeSelect.options = themes.map((themeName: ThemeName) => {
+        const displayName = themeName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        const isCurrent = themeName === currentThemeName;
+        return {
+            name: isCurrent ? `${displayName} (current)` : displayName,
+            description: '',
+            value: themeName,
+        };
+    });
     themeSelect.selectedIndex = currentIndex >= 0 ? currentIndex : 0;
 }
 
