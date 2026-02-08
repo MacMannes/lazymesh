@@ -196,6 +196,8 @@ function createThemeMenu() {
         (_index: number, option: any) => {
             // This will be the final selection to save to config
             themeManager.setTheme(option.value);
+            // Update originalTheme since this is now the "saved" theme
+            originalTheme = option.value;
             updateTheme();
             updateThemeMenu();
             hideThemeMenu();
@@ -209,7 +211,6 @@ function createThemeMenu() {
 function updateThemeMenu() {
     const theme = themeManager.getTheme();
     const themes = themeManager.getAvailableThemes();
-    const currentThemeName = themeManager.getThemeName();
     
     // Update menu box colors
     themeMenuBox.backgroundColor = RGBA.fromHex(theme.colors.surface);
@@ -222,7 +223,6 @@ function updateThemeMenu() {
     }
     
     // Update select colors
-    const currentIndex = themes.findIndex((t: ThemeName) => t === currentThemeName);
     themeSelect.backgroundColor = RGBA.fromHex(theme.colors.surface);
     themeSelect.textColor = RGBA.fromHex(theme.colors.text);
     themeSelect.focusedBackgroundColor = RGBA.fromHex(theme.colors.surface);
@@ -232,17 +232,17 @@ function updateThemeMenu() {
     themeSelect.selectedTextColor = RGBA.fromHex(theme.colors.background);
     themeSelect.selectedDescriptionColor = RGBA.fromHex(theme.colors.background);
     
-    // Update options to reflect current theme
+    // Update options - use originalTheme for "(current)" indicator
     themeSelect.options = themes.map((themeName: ThemeName) => {
         const displayName = themeName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        const isCurrent = themeName === currentThemeName;
+        // Show "(current)" for the saved/original theme, not the preview
+        const isCurrent = themeName === originalTheme;
         return {
             name: isCurrent ? `${displayName} (current)` : displayName,
             description: '',
             value: themeName,
         };
     });
-    themeSelect.selectedIndex = currentIndex >= 0 ? currentIndex : 0;
 }
 
 function showThemeMenu() {
