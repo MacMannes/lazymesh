@@ -39,4 +39,4 @@ export interface Theme {
     };
 }
 
-export type ThemeName = 'catppuccin-mocha' | 'catppuccin-latte' | 'catppuccin-frappe' | 'catppuccin-macchiato';
+export type ThemeName = 'opencode' | 'catppuccin-mocha' | 'catppuccin-latte' | 'catppuccin-frappe' | 'catppuccin-macchiato';

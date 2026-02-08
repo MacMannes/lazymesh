@@ -1,5 +1,46 @@
 import type { Theme } from './types';
 
+export const opencode: Theme = {
+    name: 'OpenCode',
+    colors: {
+        // Base colors - dark blue-grey theme
+        base: '#0d1117',
+        mantle: '#010409',
+        crust: '#000000',
+        
+        // Text colors - bright and readable
+        text: '#e6edf3',
+        subtext1: '#c9d1d9',
+        subtext0: '#8b949e',
+        
+        // Surface colors - subtle blue-grey
+        surface0: '#161b22',
+        surface1: '#21262d',
+        surface2: '#30363d',
+        
+        // Overlay colors
+        overlay0: '#484f58',
+        overlay1: '#6e7681',
+        overlay2: '#8b949e',
+        
+        // Accent colors - vibrant but professional
+        blue: '#58a6ff',
+        lavender: '#a371f7',
+        sapphire: '#1f6feb',
+        sky: '#79c0ff',
+        teal: '#56d4dd',
+        green: '#3fb950',
+        yellow: '#d29922',
+        peach: '#f0883e',
+        maroon: '#da3633',
+        red: '#ff7b72',
+        mauve: '#bc8cff',
+        pink: '#f778ba',
+        flamingo: '#ffb3ba',
+        rosewater: '#ffc9c9',
+    },
+};
+
 export const catppuccinMocha: Theme = {
     name: 'Catppuccin Mocha',
     colors: {

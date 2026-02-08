@@ -1,5 +1,6 @@
 import type { Theme, ThemeName } from './types';
 import {
+    opencode,
     catppuccinMocha,
     catppuccinLatte,
     catppuccinFrappe,
@@ -7,6 +8,7 @@ import {
 } from './themes';
 
 const themes: Record<ThemeName, Theme> = {
+    'opencode': opencode,
     'catppuccin-mocha': catppuccinMocha,
     'catppuccin-latte': catppuccinLatte,
     'catppuccin-frappe': catppuccinFrappe,
