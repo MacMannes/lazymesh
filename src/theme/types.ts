@@ -1,41 +1,31 @@
 export interface Theme {
     name: string;
     colors: {
-        // Base colors
-        base: string;
-        mantle: string;
-        crust: string;
+        // Backgrounds
+        background: string;           // Main background
+        backgroundAlt: string;        // Alternative background (darker/lighter)
+        surface: string;              // Surface elements (cards, panels)
+        surfaceAlt: string;           // Alternate surface (hover states)
         
-        // Text colors
-        text: string;
-        subtext0: string;
-        subtext1: string;
+        // Borders
+        border: string;               // Default borders
+        borderFocused: string;        // Focused element borders
         
-        // Surface colors
-        surface0: string;
-        surface1: string;
-        surface2: string;
+        // Text
+        text: string;                 // Primary text
+        textMuted: string;            // Secondary/muted text
+        textSubtle: string;           // Tertiary/subtle text
         
-        // Overlay colors
-        overlay0: string;
-        overlay1: string;
-        overlay2: string;
+        // Interactive states
+        accent: string;               // Primary accent (titles, highlights, selections)
+        accentAlt: string;            // Alternative accent
+        hover: string;                // Hover states
         
-        // Accent colors
-        blue: string;
-        lavender: string;
-        sapphire: string;
-        sky: string;
-        teal: string;
-        green: string;
-        yellow: string;
-        peach: string;
-        maroon: string;
-        red: string;
-        mauve: string;
-        pink: string;
-        flamingo: string;
-        rosewater: string;
+        // Semantic colors
+        success: string;              // Success states
+        warning: string;              // Warning states
+        error: string;                // Error states
+        info: string;                 // Info states
     };
 }
 

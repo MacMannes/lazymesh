@@ -3,189 +3,154 @@ import type { Theme } from './types';
 export const opencode: Theme = {
     name: 'OpenCode',
     colors: {
-        // Base colors - dark blue-grey theme
-        base: '#0d1117',
-        mantle: '#010409',
-        crust: '#000000',
+        // Backgrounds
+        background: '#0d1117',        // Main background
+        backgroundAlt: '#010409',     // Darker background
+        surface: '#161b22',           // Surface elements
+        surfaceAlt: '#21262d',        // Alternate surface
         
-        // Text colors - bright and readable
-        text: '#e6edf3',
-        subtext1: '#c9d1d9',
-        subtext0: '#8b949e',
+        // Borders
+        border: '#30363d',            // Default borders
+        borderFocused: '#58a6ff',     // Focused borders (blue)
         
-        // Surface colors - subtle blue-grey
-        surface0: '#161b22',
-        surface1: '#21262d',
-        surface2: '#30363d',
+        // Text
+        text: '#e6edf3',              // Primary text
+        textMuted: '#8b949e',         // Secondary text
+        textSubtle: '#6e7681',        // Tertiary text
         
-        // Overlay colors
-        overlay0: '#484f58',
-        overlay1: '#6e7681',
-        overlay2: '#8b949e',
+        // Interactive states
+        accent: '#58a6ff',            // Primary accent (blue)
+        accentAlt: '#bc8cff',         // Alternative accent (purple)
+        hover: '#30363d',             // Hover states
         
-        // Accent colors - vibrant but professional
-        blue: '#58a6ff',
-        lavender: '#a371f7',
-        sapphire: '#1f6feb',
-        sky: '#79c0ff',
-        teal: '#56d4dd',
-        green: '#3fb950',
-        yellow: '#d29922',
-        peach: '#f0883e',
-        maroon: '#da3633',
-        red: '#ff7b72',
-        mauve: '#bc8cff',
-        pink: '#f778ba',
-        flamingo: '#ffb3ba',
-        rosewater: '#ffc9c9',
+        // Semantic colors
+        success: '#3fb950',           // Green
+        warning: '#d29922',           // Yellow
+        error: '#ff7b72',             // Red
+        info: '#79c0ff',              // Sky blue
     },
 };
 
 export const catppuccinMocha: Theme = {
     name: 'Catppuccin Mocha',
     colors: {
-        // Base colors
-        rosewater: '#f5e0dc',
-        flamingo: '#f2cdcd',
-        pink: '#f5c2e7',
-        mauve: '#cba6f7',
-        red: '#f38ba8',
-        maroon: '#eba0ac',
-        peach: '#fab387',
-        yellow: '#f9e2af',
-        green: '#a6e3a1',
-        teal: '#94e2d5',
-        sky: '#89dceb',
-        sapphire: '#74c7ec',
-        blue: '#89b4fa',
-        lavender: '#b4befe',
+        // Backgrounds
+        background: '#1e1e2e',        // Base
+        backgroundAlt: '#181825',     // Mantle
+        surface: '#313244',           // Surface0
+        surfaceAlt: '#45475a',        // Surface1
         
-        // Text colors
-        text: '#cdd6f4',
-        subtext1: '#bac2de',
-        subtext0: '#a6adc8',
+        // Borders
+        border: '#585b70',            // Surface2
+        borderFocused: '#cba6f7',     // Mauve
         
-        // Overlay colors
-        overlay2: '#9399b2',
-        overlay1: '#7f849c',
-        overlay0: '#6c7086',
+        // Text
+        text: '#cdd6f4',              // Text
+        textMuted: '#a6adc8',         // Subtext0
+        textSubtle: '#6c7086',        // Overlay0
         
-        // Surface colors
-        surface2: '#585b70',
-        surface1: '#45475a',
-        surface0: '#313244',
+        // Interactive states
+        accent: '#cba6f7',            // Mauve - Catppuccin's signature
+        accentAlt: '#89b4fa',         // Blue
+        hover: '#45475a',             // Surface1
         
-        // Base colors
-        base: '#1e1e2e',
-        mantle: '#181825',
-        crust: '#11111b',
+        // Semantic colors
+        success: '#a6e3a1',           // Green
+        warning: '#f9e2af',           // Yellow
+        error: '#f38ba8',             // Red
+        info: '#89dceb',              // Sky
     },
 };
 
 export const catppuccinLatte: Theme = {
     name: 'Catppuccin Latte',
     colors: {
-        rosewater: '#dc8a78',
-        flamingo: '#dd7878',
-        pink: '#ea76cb',
-        mauve: '#8839ef',
-        red: '#d20f39',
-        maroon: '#e64553',
-        peach: '#fe640b',
-        yellow: '#df8e1d',
-        green: '#40a02b',
-        teal: '#179299',
-        sky: '#04a5e5',
-        sapphire: '#209fb5',
-        blue: '#1e66f5',
-        lavender: '#7287fd',
+        // Backgrounds
+        background: '#eff1f5',        // Base
+        backgroundAlt: '#e6e9ef',     // Mantle
+        surface: '#ccd0da',           // Surface0
+        surfaceAlt: '#bcc0cc',        // Surface1
         
-        text: '#4c4f69',
-        subtext1: '#5c5f77',
-        subtext0: '#6c6f85',
+        // Borders
+        border: '#acb0be',            // Surface2
+        borderFocused: '#8839ef',     // Mauve
         
-        overlay2: '#7c7f93',
-        overlay1: '#8c8fa1',
-        overlay0: '#9ca0b0',
+        // Text
+        text: '#4c4f69',              // Text
+        textMuted: '#6c6f85',         // Subtext0
+        textSubtle: '#9ca0b0',        // Overlay0
         
-        surface2: '#acb0be',
-        surface1: '#bcc0cc',
-        surface0: '#ccd0da',
+        // Interactive states
+        accent: '#8839ef',            // Mauve
+        accentAlt: '#1e66f5',         // Blue
+        hover: '#bcc0cc',             // Surface1
         
-        base: '#eff1f5',
-        mantle: '#e6e9ef',
-        crust: '#dce0e8',
+        // Semantic colors
+        success: '#40a02b',           // Green
+        warning: '#df8e1d',           // Yellow
+        error: '#d20f39',             // Red
+        info: '#04a5e5',              // Sky
     },
 };
 
 export const catppuccinFrappe: Theme = {
     name: 'Catppuccin Frappé',
     colors: {
-        rosewater: '#f2d5cf',
-        flamingo: '#eebebe',
-        pink: '#f4b8e4',
-        mauve: '#ca9ee6',
-        red: '#e78284',
-        maroon: '#ea999c',
-        peach: '#ef9f76',
-        yellow: '#e5c890',
-        green: '#a6d189',
-        teal: '#81c8be',
-        sky: '#99d1db',
-        sapphire: '#85c1dc',
-        blue: '#8caaee',
-        lavender: '#babbf1',
+        // Backgrounds
+        background: '#303446',        // Base
+        backgroundAlt: '#292c3c',     // Mantle
+        surface: '#414559',           // Surface0
+        surfaceAlt: '#51576d',        // Surface1
         
-        text: '#c6d0f5',
-        subtext1: '#b5bfe2',
-        subtext0: '#a5adce',
+        // Borders
+        border: '#626880',            // Surface2
+        borderFocused: '#ca9ee6',     // Mauve
         
-        overlay2: '#949cbb',
-        overlay1: '#838ba7',
-        overlay0: '#737994',
+        // Text
+        text: '#c6d0f5',              // Text
+        textMuted: '#a5adce',         // Subtext0
+        textSubtle: '#737994',        // Overlay0
         
-        surface2: '#626880',
-        surface1: '#51576d',
-        surface0: '#414559',
+        // Interactive states
+        accent: '#ca9ee6',            // Mauve
+        accentAlt: '#8caaee',         // Blue
+        hover: '#51576d',             // Surface1
         
-        base: '#303446',
-        mantle: '#292c3c',
-        crust: '#232634',
+        // Semantic colors
+        success: '#a6d189',           // Green
+        warning: '#e5c890',           // Yellow
+        error: '#e78284',             // Red
+        info: '#99d1db',              // Sky
     },
 };
 
 export const catppuccinMacchiato: Theme = {
     name: 'Catppuccin Macchiato',
     colors: {
-        rosewater: '#f4dbd6',
-        flamingo: '#f0c6c6',
-        pink: '#f5bde6',
-        mauve: '#c6a0f6',
-        red: '#ed8796',
-        maroon: '#ee99a0',
-        peach: '#f5a97f',
-        yellow: '#eed49f',
-        green: '#a6da95',
-        teal: '#8bd5ca',
-        sky: '#91d7e3',
-        sapphire: '#7dc4e4',
-        blue: '#8aadf4',
-        lavender: '#b7bdf8',
+        // Backgrounds
+        background: '#24273a',        // Base
+        backgroundAlt: '#1e2030',     // Mantle
+        surface: '#363a4f',           // Surface0
+        surfaceAlt: '#494d64',        // Surface1
         
-        text: '#cad3f5',
-        subtext1: '#b8c0e0',
-        subtext0: '#a5adcb',
+        // Borders
+        border: '#5b6078',            // Surface2
+        borderFocused: '#c6a0f6',     // Mauve
         
-        overlay2: '#939ab7',
-        overlay1: '#8087a2',
-        overlay0: '#6e738d',
+        // Text
+        text: '#cad3f5',              // Text
+        textMuted: '#a5adcb',         // Subtext0
+        textSubtle: '#6e738d',        // Overlay0
         
-        surface2: '#5b6078',
-        surface1: '#494d64',
-        surface0: '#363a4f',
+        // Interactive states
+        accent: '#c6a0f6',            // Mauve
+        accentAlt: '#8aadf4',         // Blue
+        hover: '#494d64',             // Surface1
         
-        base: '#24273a',
-        mantle: '#1e2030',
-        crust: '#181926',
+        // Semantic colors
+        success: '#a6da95',           // Green
+        warning: '#eed49f',           // Yellow
+        error: '#ed8796',             // Red
+        info: '#91d7e3',              // Sky
     },
 };

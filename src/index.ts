@@ -35,7 +35,7 @@ function createUI() {
         alignItems: 'center',
         justifyContent: 'center',
         flexGrow: 1,
-        backgroundColor: RGBA.fromHex(theme.colors.base),
+        backgroundColor: RGBA.fromHex(theme.colors.background),
     });
 
     // Create content box
@@ -46,10 +46,10 @@ function createUI() {
         flexDirection: 'column',
         gap: 1,
         padding: 2,
-        backgroundColor: RGBA.fromHex(theme.colors.surface0),
+        backgroundColor: RGBA.fromHex(theme.colors.surface),
         border: true,
         borderStyle: 'rounded',
-        borderColor: RGBA.fromHex(theme.colors.mauve),
+        borderColor: RGBA.fromHex(theme.colors.accent),
     });
 
     // Create ASCII font
@@ -57,14 +57,14 @@ function createUI() {
         id: 'logo',
         font: 'block',
         text: 'lazymesh',
-        color: RGBA.fromHex(theme.colors.mauve),
+        color: RGBA.fromHex(theme.colors.accent),
     });
 
     // Create subtitle
     subtitleText = new TextRenderable(renderer, {
         id: 'subtitle',
         content: 'A simple terminal UI for MeshCore',
-        fg: RGBA.fromHex(theme.colors.subtext0),
+        fg: RGBA.fromHex(theme.colors.textMuted),
     });
 
     // Create theme info container
@@ -78,7 +78,7 @@ function createUI() {
     themeText = new TextRenderable(renderer, {
         id: 'theme-name',
         content: `Theme: ${theme.name}`,
-        fg: RGBA.fromHex(theme.colors.green),
+        fg: RGBA.fromHex(theme.colors.success),
     });
 
     // Assemble content box
@@ -96,7 +96,7 @@ function createUI() {
         left: 0,
         right: 0,
         height: 1,
-        backgroundColor: RGBA.fromHex(theme.colors.mantle),
+        backgroundColor: RGBA.fromHex(theme.colors.backgroundAlt),
         paddingLeft: 1,
         paddingRight: 1,
     });
@@ -104,7 +104,7 @@ function createUI() {
     shortcutText = new TextRenderable(renderer, {
         id: 'shortcuts',
         content: 'ctrl+p: Theme Menu | ctrl+c: Exit',
-        fg: RGBA.fromHex(theme.colors.overlay0),
+        fg: RGBA.fromHex(theme.colors.textSubtle),
     });
 
     footerBox.add(shortcutText);
@@ -126,10 +126,10 @@ function createThemeMenu() {
         height: 14,
         marginLeft: -20, // Center horizontally
         marginTop: -7, // Center vertically
-        backgroundColor: RGBA.fromHex(theme.colors.surface0),
+        backgroundColor: RGBA.fromHex(theme.colors.surface),
         border: true,
         borderStyle: 'rounded',
-        borderColor: RGBA.fromHex(theme.colors.mauve),
+        borderColor: RGBA.fromHex(theme.colors.accent),
         padding: 0,
         paddingLeft: 1,
         paddingRight: 1,
@@ -142,7 +142,7 @@ function createThemeMenu() {
     const titleText = new TextRenderable(renderer, {
         id: 'menu-title',
         content: '  Select Theme',
-        fg: RGBA.fromHex(theme.colors.mauve),
+        fg: RGBA.fromHex(theme.colors.accent),
     });
 
     // Create select component
@@ -161,14 +161,14 @@ function createThemeMenu() {
             value: themeName,
         })),
         selectedIndex: currentIndex >= 0 ? currentIndex : 0,
-        backgroundColor: RGBA.fromHex(theme.colors.surface0),
+        backgroundColor: RGBA.fromHex(theme.colors.surface),
         textColor: RGBA.fromHex(theme.colors.text),
-        focusedBackgroundColor: RGBA.fromHex(theme.colors.surface0),
+        focusedBackgroundColor: RGBA.fromHex(theme.colors.surface),
         focusedTextColor: RGBA.fromHex(theme.colors.text),
-        selectedBackgroundColor: RGBA.fromHex(theme.colors.mauve),
-        selectedTextColor: RGBA.fromHex(theme.colors.base),
-        descriptionColor: RGBA.fromHex(theme.colors.overlay1),
-        selectedDescriptionColor: RGBA.fromHex(theme.colors.base),
+        selectedBackgroundColor: RGBA.fromHex(theme.colors.accent),
+        selectedTextColor: RGBA.fromHex(theme.colors.background),
+        descriptionColor: RGBA.fromHex(theme.colors.textMuted),
+        selectedDescriptionColor: RGBA.fromHex(theme.colors.background),
         showScrollIndicator: true,
     });
 
@@ -192,25 +192,25 @@ function updateThemeMenu() {
     const themes = themeManager.getAvailableThemes();
     
     // Update menu box colors
-    themeMenuBox.backgroundColor = RGBA.fromHex(theme.colors.surface0);
-    themeMenuBox.borderColor = RGBA.fromHex(theme.colors.mauve);
+    themeMenuBox.backgroundColor = RGBA.fromHex(theme.colors.surface);
+    themeMenuBox.borderColor = RGBA.fromHex(theme.colors.accent);
     
     // Update title
     const titleText = themeMenuBox.getRenderable('menu-title') as TextRenderable;
     if (titleText) {
-        titleText.fg = RGBA.fromHex(theme.colors.mauve);
+        titleText.fg = RGBA.fromHex(theme.colors.accent);
     }
     
     // Update select colors
     const currentIndex = themes.findIndex((t: ThemeName) => t === theme.name);
-    themeSelect.backgroundColor = RGBA.fromHex(theme.colors.surface0);
+    themeSelect.backgroundColor = RGBA.fromHex(theme.colors.surface);
     themeSelect.textColor = RGBA.fromHex(theme.colors.text);
-    themeSelect.focusedBackgroundColor = RGBA.fromHex(theme.colors.surface0);
+    themeSelect.focusedBackgroundColor = RGBA.fromHex(theme.colors.surface);
     themeSelect.focusedTextColor = RGBA.fromHex(theme.colors.text);
-    themeSelect.descriptionColor = RGBA.fromHex(theme.colors.overlay1);
-    themeSelect.selectedBackgroundColor = RGBA.fromHex(theme.colors.mauve);
-    themeSelect.selectedTextColor = RGBA.fromHex(theme.colors.base);
-    themeSelect.selectedDescriptionColor = RGBA.fromHex(theme.colors.base);
+    themeSelect.descriptionColor = RGBA.fromHex(theme.colors.textMuted);
+    themeSelect.selectedBackgroundColor = RGBA.fromHex(theme.colors.accent);
+    themeSelect.selectedTextColor = RGBA.fromHex(theme.colors.background);
+    themeSelect.selectedDescriptionColor = RGBA.fromHex(theme.colors.background);
     
     // Update options to reflect current theme
     themeSelect.options = themes.map((themeName: ThemeName) => ({
@@ -243,25 +243,25 @@ function updateTheme() {
     const theme = themeManager.getTheme();
 
     // Update root box background
-    rootBox.backgroundColor = RGBA.fromHex(theme.colors.base);
+    rootBox.backgroundColor = RGBA.fromHex(theme.colors.background);
 
     // Update content box
-    contentBox.backgroundColor = RGBA.fromHex(theme.colors.surface0);
-    contentBox.borderColor = RGBA.fromHex(theme.colors.mauve);
+    contentBox.backgroundColor = RGBA.fromHex(theme.colors.surface);
+    contentBox.borderColor = RGBA.fromHex(theme.colors.accent);
 
     // Update ASCII font color
-    asciiFont.color = RGBA.fromHex(theme.colors.mauve);
+    asciiFont.color = RGBA.fromHex(theme.colors.accent);
 
     // Update subtitle text
-    subtitleText.fg = RGBA.fromHex(theme.colors.subtext0);
+    subtitleText.fg = RGBA.fromHex(theme.colors.textMuted);
 
     // Update theme name text
     themeText.content = `Theme: ${theme.name}`;
-    themeText.fg = RGBA.fromHex(theme.colors.green);
+    themeText.fg = RGBA.fromHex(theme.colors.success);
 
     // Update footer
-    footerBox.backgroundColor = RGBA.fromHex(theme.colors.mantle);
-    shortcutText.fg = RGBA.fromHex(theme.colors.overlay0);
+    footerBox.backgroundColor = RGBA.fromHex(theme.colors.backgroundAlt);
+    shortcutText.fg = RGBA.fromHex(theme.colors.textSubtle);
 
     // Request a re-render
     renderer.requestRender();
