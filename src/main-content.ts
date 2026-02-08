@@ -4,6 +4,9 @@ import {
     CliRenderer,
     TextRenderable,
     RGBA,
+    t,
+    fg,
+    bold,
 } from '@opentui/core';
 import { themeManager } from './theme';
 
@@ -93,15 +96,15 @@ export class MainContent {
             left: 0,
             right: 0,
             height: 1,
-            backgroundColor: RGBA.fromHex(theme.colors.backgroundAlt),
+            backgroundColor: RGBA.fromHex(theme.colors.background),
             paddingLeft: 1,
             paddingRight: 1,
         });
 
         this.shortcutText = new TextRenderable(this.renderer, {
             id: 'shortcuts',
-            content: 'ctrl+p: Theme Menu | ctrl+c: Exit',
-            fg: RGBA.fromHex(theme.colors.textSubtle),
+            content: t`${bold(fg(theme.colors.accent)('ctrl+p'))}: Theme Menu | ${bold(fg(theme.colors.accent)('ctrl+c'))}: Exit`,
+            fg: RGBA.fromHex(theme.colors.text),
         });
 
         this.footerBox.add(this.shortcutText);
@@ -131,8 +134,9 @@ export class MainContent {
         this.themeText.fg = RGBA.fromHex(theme.colors.success);
 
         // Update footer
-        this.footerBox.backgroundColor = RGBA.fromHex(theme.colors.backgroundAlt);
-        this.shortcutText.fg = RGBA.fromHex(theme.colors.textSubtle);
+        this.footerBox.backgroundColor = RGBA.fromHex(theme.colors.background);
+        this.shortcutText.fg = RGBA.fromHex(theme.colors.text);
+        this.shortcutText.content = t`${bold(fg(theme.colors.accent)('ctrl+p'))}: Theme Menu | ${bold(fg(theme.colors.accent)('ctrl+c'))}: Exit`;
 
         // Request a re-render
         this.renderer.requestRender();
