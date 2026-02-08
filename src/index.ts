@@ -25,6 +25,7 @@ let shortcutText: TextRenderable;
 let themeMenuBox: BoxRenderable;
 let themeSelect: SelectRenderable;
 let menuVisible = false;
+let originalTheme: ThemeName; // Store theme before opening menu
 
 function createUI() {
     const theme = themeManager.getTheme();
@@ -178,10 +179,22 @@ function createThemeMenu() {
         showDescription: false,  // Hide description line
     });
 
-    // Handle theme selection
+    // Handle theme preview on navigation (up/down arrows or j/k)
+    themeSelect.on(
+        SelectRenderableEvents.SELECTION_CHANGED,
+        (_index: number, option: any) => {
+            // Live preview: apply theme as user navigates
+            themeManager.setTheme(option.value);
+            updateTheme();
+            updateThemeMenu();
+        },
+    );
+
+    // Handle final theme selection (Enter key)
     themeSelect.on(
         SelectRenderableEvents.ITEM_SELECTED,
         (_index: number, option: any) => {
+            // This will be the final selection to save to config
             themeManager.setTheme(option.value);
             updateTheme();
             updateThemeMenu();
@@ -234,6 +247,8 @@ function updateThemeMenu() {
 
 function showThemeMenu() {
     if (!menuVisible) {
+        // Store current theme so we can restore it if user presses Escape
+        originalTheme = themeManager.getThemeName();
         renderer.root.add(themeMenuBox);
         themeSelect.focus();
         menuVisible = true;
@@ -241,8 +256,14 @@ function showThemeMenu() {
     }
 }
 
-function hideThemeMenu() {
+function hideThemeMenu(restoreOriginal = false) {
     if (menuVisible) {
+        // If cancelled (Escape), restore original theme
+        if (restoreOriginal && originalTheme) {
+            themeManager.setTheme(originalTheme);
+            updateTheme();
+            updateThemeMenu();
+        }
         renderer.root.remove('theme-menu');
         themeSelect.blur();
         menuVisible = false;
@@ -303,8 +324,8 @@ renderer.keyInput.on('keypress', (key) => {
         }
     }
 
-    // Handle escape to close menu
+    // Handle escape to close menu (restore original theme)
     if (menuVisible && key.name === 'escape') {
-        hideThemeMenu();
+        hideThemeMenu(true); // true = restore original theme
     }
 });
