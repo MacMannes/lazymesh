@@ -1,10 +1,4 @@
-import {
-    ASCIIFont,
-    Box,
-    createCliRenderer,
-    Text,
-    RGBA,
-} from '@opentui/core';
+import { ASCIIFont, Box, createCliRenderer, Text, RGBA } from '@opentui/core';
 import { themeManager } from './theme';
 
 const renderer = await createCliRenderer({ exitOnCtrlC: true });
@@ -31,7 +25,7 @@ renderer.root.add(
                 borderColor: RGBA.fromHex(theme.colors.mauve),
             },
             ASCIIFont({
-                font: 'tiny',
+                font: 'block',
                 text: 'lazymesh',
                 color: RGBA.fromHex(theme.colors.mauve),
             }),
