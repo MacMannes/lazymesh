@@ -1,4 +1,8 @@
-# core
+# LazyMesh
+
+A simple tui UI for MeshCore, built with OpenTUI.
+
+## Getting Started
 
 To install dependencies:
 
@@ -12,4 +16,6 @@ To run:
 bun dev
 ```
 
-This project was created using `bun create tui`. [create-tui](https://git.new/create-tui) is the easiest way to get started with OpenTUI.
+This project was created using `bun create tui`.
+[create-tui](https://git.new/create-tui) is the easiest way to get started with
+OpenTUI.
