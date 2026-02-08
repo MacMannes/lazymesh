@@ -73,7 +73,7 @@ export const catppuccinLatte: Theme = {
         
         // Borders
         border: '#acb0be',            // Surface2
-        borderFocused: '#8839ef',     // Mauve
+        borderFocused: '#dc8a78',     // Rosewater
         
         // Text
         text: '#4c4f69',              // Text
@@ -81,8 +81,8 @@ export const catppuccinLatte: Theme = {
         textSubtle: '#9ca0b0',        // Overlay0
         
         // Interactive states
-        accent: '#8839ef',            // Mauve
-        accentAlt: '#1e66f5',         // Blue
+        accent: '#dc8a78',            // Rosewater (pink/peach)
+        accentAlt: '#fe640b',         // Peach
         hover: '#bcc0cc',             // Surface1
         
         // Semantic colors
@@ -104,7 +104,7 @@ export const catppuccinFrappe: Theme = {
         
         // Borders
         border: '#626880',            // Surface2
-        borderFocused: '#ca9ee6',     // Mauve
+        borderFocused: '#81c8be',     // Teal
         
         // Text
         text: '#c6d0f5',              // Text
@@ -112,15 +112,15 @@ export const catppuccinFrappe: Theme = {
         textSubtle: '#737994',        // Overlay0
         
         // Interactive states
-        accent: '#ca9ee6',            // Mauve
-        accentAlt: '#8caaee',         // Blue
+        accent: '#81c8be',            // Teal (cyan/aqua)
+        accentAlt: '#99d1db',         // Sky
         hover: '#51576d',             // Surface1
         
         // Semantic colors
         success: '#a6d189',           // Green
         warning: '#e5c890',           // Yellow
         error: '#e78284',             // Red
-        info: '#99d1db',              // Sky
+        info: '#8caaee',              // Blue
     },
 };
 
@@ -135,7 +135,7 @@ export const catppuccinMacchiato: Theme = {
         
         // Borders
         border: '#5b6078',            // Surface2
-        borderFocused: '#c6a0f6',     // Mauve
+        borderFocused: '#f5a97f',     // Peach
         
         // Text
         text: '#cad3f5',              // Text
@@ -143,8 +143,8 @@ export const catppuccinMacchiato: Theme = {
         textSubtle: '#6e738d',        // Overlay0
         
         // Interactive states
-        accent: '#c6a0f6',            // Mauve
-        accentAlt: '#8aadf4',         // Blue
+        accent: '#f5a97f',            // Peach (orange)
+        accentAlt: '#f0c6c6',         // Flamingo
         hover: '#494d64',             // Surface1
         
         // Semantic colors
