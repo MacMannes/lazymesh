@@ -42,5 +42,5 @@ class ThemeManager {
     }
 }
 
-export const themeManager = new ThemeManager('catppuccin-mocha');
+export const themeManager = new ThemeManager('opencode');
 export { themes };
