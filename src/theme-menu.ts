@@ -13,6 +13,7 @@ import type { ThemeName } from './theme/types';
  * Manages the theme selection menu
  */
 export class ThemeMenu {
+    private overlay!: BoxRenderable;
     private themeMenuBox!: BoxRenderable;
     private themeSelect!: SelectRenderable;
     private menuVisible = false;
@@ -27,16 +28,24 @@ export class ThemeMenu {
         const theme = themeManager.getTheme();
         const themes = themeManager.getAvailableThemes();
 
-        // Create menu container
+        // Create centered overlay container
+        this.overlay = new BoxRenderable(this.renderer, {
+            id: 'theme-menu-overlay',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 100,
+        });
+
+        // Create menu container (centered by parent flexbox)
         this.themeMenuBox = new BoxRenderable(this.renderer, {
             id: 'theme-menu',
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
             width: 40,
             height: 14,
-            marginLeft: -20, // Center horizontally
-            marginTop: -7, // Center vertically
             backgroundColor: RGBA.fromHex(theme.colors.surface),
             border: true,
             borderStyle: 'rounded',
@@ -46,7 +55,6 @@ export class ThemeMenu {
             paddingRight: 1,
             paddingTop: 1,
             paddingBottom: 0,
-            zIndex: 100,
         });
 
         // Create title
@@ -116,6 +124,9 @@ export class ThemeMenu {
 
         this.themeMenuBox.add(titleText);
         this.themeMenuBox.add(this.themeSelect);
+        
+        // Add menu to overlay
+        this.overlay.add(this.themeMenuBox);
     }
 
     /**
@@ -168,7 +179,7 @@ export class ThemeMenu {
         if (!this.menuVisible) {
             // Store current theme so we can restore it if user presses Escape
             this.originalTheme = themeManager.getThemeName();
-            this.renderer.root.add(this.themeMenuBox);
+            this.renderer.root.add(this.overlay);
             this.themeSelect.focus();
             this.menuVisible = true;
             this.renderer.requestRender();
@@ -187,7 +198,7 @@ export class ThemeMenu {
                 this.updateMenu();
                 this.onThemeChange?.();
             }
-            this.renderer.root.remove('theme-menu');
+            this.renderer.root.remove('theme-menu-overlay');
             this.themeSelect.blur();
             this.menuVisible = false;
             this.renderer.requestRender();
