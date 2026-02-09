@@ -4,14 +4,16 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "prepare": "husky",
     "dev": "bun run --watch src/index.ts",
-    "checktypes": "bun x tsc --noEmit",
+    "check-types": "bun x tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint src/ --fix"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "eslint-plugin-no-relative-import-paths": "^1.6.1"
+    "eslint-plugin-no-relative-import-paths": "^1.6.1",
+    "lint-staged": "^16.2.7"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
@@ -24,5 +26,13 @@
     "eslint-plugin-prettier": "^5.5.5",
     "prettier": "^3.8.1",
     "typescript-eslint": "^8.54.0"
+  },
+  "lint-staged": {
+    "*.{mjs,ts}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,mjs,ts,md,yml,yaml}": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
