@@ -1,7 +1,7 @@
 import { createCliRenderer } from '@opentui/core';
-import { MainContent } from './main-content';
-import { ThemeMenu } from './theme-menu';
-import { KeyboardHandler } from './keyboard-handler';
+import { MainContent } from '~/components/main-content';
+import { ThemeMenu } from '~/components/theme-menu';
+import { KeyboardHandler } from '~/handlers/keyboard-handler';
 
 const renderer = await createCliRenderer({
     exitOnCtrlC: false,

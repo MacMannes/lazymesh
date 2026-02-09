@@ -1,5 +1,5 @@
 import { CliRenderer } from '@opentui/core';
-import type { ThemeMenu } from './theme-menu';
+import type { ThemeMenu } from '~/components/theme-menu';
 
 /**
  * Handles keyboard shortcuts for the application

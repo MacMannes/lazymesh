@@ -8,7 +8,7 @@ import {
     fg,
     bold,
 } from '@opentui/core';
-import { themeManager } from './theme';
+import { themeManager } from '~/theme';
 
 /**
  * Manages the main content area with logo, subtitle, and theme info
