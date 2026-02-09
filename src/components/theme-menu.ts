@@ -75,13 +75,9 @@ export class ThemeMenu {
             height: 9,
             marginTop: 1,
             options: themes.map((themeName: ThemeName) => {
-                const displayName = themeName
-                    .split('-')
-                    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                    .join(' ');
                 const isCurrent = themeName === currentThemeName;
                 return {
-                    name: isCurrent ? `${displayName} (current)` : displayName,
+                    name: isCurrent ? `${themeName} (current)` : themeName,
                     description: '',
                     value: themeName,
                 };
