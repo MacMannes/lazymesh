@@ -19,7 +19,9 @@
     "@eslint/js": "^10.0.1",
     "@opentui/core": "^0.1.77",
     "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1",
     "typescript-eslint": "^8.54.0"
   }
 }
-
