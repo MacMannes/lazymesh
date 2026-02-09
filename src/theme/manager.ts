@@ -8,7 +8,7 @@ import {
 } from './themes';
 
 const themes: Record<ThemeName, Theme> = {
-    'opencode': opencode,
+    opencode: opencode,
     'catppuccin-mocha': catppuccinMocha,
     'catppuccin-latte': catppuccinLatte,
     'catppuccin-frappe': catppuccinFrappe,

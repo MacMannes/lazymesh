@@ -66,7 +66,9 @@ export class ThemeMenu {
 
         // Create select component
         const currentThemeName = themeManager.getThemeName();
-        const currentIndex = themes.findIndex((t: ThemeName) => t === currentThemeName);
+        const currentIndex = themes.findIndex(
+            (t: ThemeName) => t === currentThemeName,
+        );
         this.themeSelect = new SelectRenderable(this.renderer, {
             id: 'theme-select',
             width: 36,
@@ -124,7 +126,7 @@ export class ThemeMenu {
 
         this.themeMenuBox.add(titleText);
         this.themeMenuBox.add(this.themeSelect);
-        
+
         // Add menu to overlay
         this.overlay.add(this.themeMenuBox);
     }
@@ -141,7 +143,9 @@ export class ThemeMenu {
         this.themeMenuBox.borderColor = RGBA.fromHex(theme.colors.accent);
 
         // Update title
-        const titleText = this.themeMenuBox.getRenderable('menu-title') as TextRenderable;
+        const titleText = this.themeMenuBox.getRenderable(
+            'menu-title',
+        ) as TextRenderable;
         if (titleText) {
             titleText.fg = RGBA.fromHex(theme.colors.accent);
         }
@@ -149,12 +153,22 @@ export class ThemeMenu {
         // Update select colors
         this.themeSelect.backgroundColor = RGBA.fromHex(theme.colors.surface);
         this.themeSelect.textColor = RGBA.fromHex(theme.colors.text);
-        this.themeSelect.focusedBackgroundColor = RGBA.fromHex(theme.colors.surface);
+        this.themeSelect.focusedBackgroundColor = RGBA.fromHex(
+            theme.colors.surface,
+        );
         this.themeSelect.focusedTextColor = RGBA.fromHex(theme.colors.text);
-        this.themeSelect.descriptionColor = RGBA.fromHex(theme.colors.textMuted);
-        this.themeSelect.selectedBackgroundColor = RGBA.fromHex(theme.colors.accent);
-        this.themeSelect.selectedTextColor = RGBA.fromHex(theme.colors.background);
-        this.themeSelect.selectedDescriptionColor = RGBA.fromHex(theme.colors.background);
+        this.themeSelect.descriptionColor = RGBA.fromHex(
+            theme.colors.textMuted,
+        );
+        this.themeSelect.selectedBackgroundColor = RGBA.fromHex(
+            theme.colors.accent,
+        );
+        this.themeSelect.selectedTextColor = RGBA.fromHex(
+            theme.colors.background,
+        );
+        this.themeSelect.selectedDescriptionColor = RGBA.fromHex(
+            theme.colors.background,
+        );
 
         // Update options - use originalTheme for "(current)" indicator
         this.themeSelect.options = themes.map((themeName: ThemeName) => {
