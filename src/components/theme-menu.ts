@@ -7,7 +7,7 @@ import {
     RGBA,
 } from '@opentui/core';
 import { themeManager } from '~/theme';
-import type { ThemeName } from '~/theme/types';
+import type { ThemeName } from '../theme/types';
 
 /**
  * Manages the theme selection menu

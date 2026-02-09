@@ -10,7 +10,8 @@
     "lint:fix": "eslint src/ --fix"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "eslint-plugin-no-relative-import-paths": "^1.6.1"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
