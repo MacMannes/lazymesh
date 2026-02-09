@@ -154,3 +154,34 @@ export const catppuccinMacchiato: Theme = {
         info: '#91d7e3', // Sky
     },
 };
+
+export const jetbrains: Theme = {
+    name: 'JetBrains',
+    colors: {
+        // Backgrounds (based on Darcula theme)
+        background: '#2b2b2b', // Main background (Darcula)
+        backgroundAlt: '#1e1f22', // Darker background (New UI)
+        surface: '#3c3f41', // Surface elements (panels)
+        surfaceAlt: '#4e5254', // Alternate surface (hover)
+
+        // Borders
+        border: '#323232', // Default borders
+        borderFocused: '#b271a8', // Focused borders (purple/magenta)
+
+        // Text
+        text: '#a9b7c6', // Primary text (Darcula text)
+        textMuted: '#808080', // Secondary text (comments)
+        textSubtle: '#606366', // Tertiary text (line numbers)
+
+        // Interactive states
+        accent: '#b271a8', // Primary accent (purple/magenta)
+        accentAlt: '#cc7832', // Alternative accent (orange - keywords)
+        hover: '#4e5254', // Hover states
+
+        // Semantic colors
+        success: '#629755', // Green (strings)
+        warning: '#bbb529', // Yellow (warnings)
+        error: '#bc3f3c', // Red (errors)
+        info: '#6897bb', // Blue-cyan (info)
+    },
+};

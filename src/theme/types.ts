@@ -34,4 +34,5 @@ export type ThemeName =
     | 'catppuccin-mocha'
     | 'catppuccin-latte'
     | 'catppuccin-frappe'
-    | 'catppuccin-macchiato';
+    | 'catppuccin-macchiato'
+    | 'jetbrains';

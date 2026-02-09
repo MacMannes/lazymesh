@@ -5,6 +5,7 @@ import {
     catppuccinLatte,
     catppuccinFrappe,
     catppuccinMacchiato,
+    jetbrains,
 } from './themes';
 
 const themes: Record<ThemeName, Theme> = {
@@ -13,6 +14,7 @@ const themes: Record<ThemeName, Theme> = {
     'catppuccin-latte': catppuccinLatte,
     'catppuccin-frappe': catppuccinFrappe,
     'catppuccin-macchiato': catppuccinMacchiato,
+    jetbrains: jetbrains,
 };
 
 class ThemeManager {
