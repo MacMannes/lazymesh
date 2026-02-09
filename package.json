@@ -4,15 +4,22 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "checktypes": "bun x tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint src/ --fix"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@opentui/core": "^0.1.77"
+    "@eslint/js": "^10.0.1",
+    "@opentui/core": "^0.1.77",
+    "eslint": "^10.0.0",
+    "typescript-eslint": "^8.54.0"
   }
 }
+
